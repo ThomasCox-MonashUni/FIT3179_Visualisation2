@@ -1,0 +1,28 @@
+html,
+body {
+    background-color: #ffe9d9;
+}
+
+.pure-g {
+    padding-top: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.map_container {
+    height: 50vw;
+    justify-content: center;
+}
+
+.bar_container {
+    height: 50vw;
+    justify-content: center;
+}
+
+#bar {
+    margin: auto;
+}
+
+#map {
+    margin: auto;
+}

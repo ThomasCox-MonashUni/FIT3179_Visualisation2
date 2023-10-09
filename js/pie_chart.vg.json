@@ -1,0 +1,16 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with embedded data.",
+  "data": {
+    "url": "gender_data.csv"
+  },
+  "mark": "arc",
+  "encoding": {
+    "theta": {"field": "Percent", "type": "quantitative"},
+    "color": {
+      "field": "Gender", 
+      "type": "nominal", 
+      "scale": {"range": ["#4468c9", "#720194", "#ff00bf"]}
+    }
+  }
+}

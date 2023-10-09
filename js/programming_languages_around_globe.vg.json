@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Programming Languages Used Around the World by Population",
+  "width": 600,
+  "height": 300,
+  "projection": {"type": "equalEarth"},
+  "data": {
+      "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/js/ne_110m_admin_0_countries.topojson",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+  },
+  "params": [
+    {
+      "name": "test",
+      "value": "JavaScript",
+      "bind": {
+          "input": "select",
+          "options": [
+              "JavaScript",
+              "Python",
+              "TypeScript",
+              "Java",
+              "C#",
+              "C++",
+              "C",
+              "PHP",
+              "Go",
+              "Rust"
+          ],
+          "labels": [
+              "JavaScript",
+              "Python",
+              "TypeScript",
+              "Java",
+              "C#",
+              "C++",
+              "C",
+              "PHP",
+              "Go",
+              "Rust"
+          ],
+          "name": "Programming Language: "
+      }
+  }],
+  "transform": [
+      {
+          "lookup": "properties.NAME",
+          "from": {
+              "data": {
+                  "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/data/clean_data.csv"
+              },
+              "key": "Country",
+              "fields": [
+                  "JavaScript",
+                  "Python",
+                  "TypeScript",
+                  "Java",
+                  "C#",
+                  "C++",
+                  "C",
+                  "PHP",
+                  "Go",
+                  "Rust"
+              ]
+          }
+      },
+      {"calculate": "datum[test]", "as": "percent"}
+  ],
+  "layer": [
+      {
+          "data": {
+              "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/js/WorldMapWithGraticules.topojson",
+              "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+          },
+          "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+      },
+      {
+          "mark": {"type": "geoshape", "fill": "#fcd5b1", "stroke": "white"},
+          "encoding": {
+            "tooltip": [
+                {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+                {"field": "percent", "type": "quantitative", "title": "% of Users"}
+            ]
+          }
+      },
+      {
+          "mark": {"type": "geoshape", "stroke": "white"},
+          
+          "encoding": {
+              "color": {
+                "title": "% of Users",
+                "field": "percent",
+                "type": "quantitative",
+                "scale": {
+                    "domain": [0, 100],
+                    "scheme":"oranges"
+                }
+              },
+              "tooltip": [
+                  {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+                  {"field": "percent", "type": "quantitative", "title": "% of Users"}
+              ]
+          }
+      }
+  ]
+}

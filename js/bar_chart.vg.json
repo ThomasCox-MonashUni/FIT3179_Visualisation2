@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 250,
+    "height": 240,
+    "description": "Programming Languages across the world",
+    "data": {
+        "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/data/clean_data.csv"
+    },
+    "transform": [
+        {"calculate": "Country", "as": "countries"}
+    ],
+    "params": [
+        {
+            "name": "country",
+            "value": "Australia",
+            "bind": {
+                  "input": "select",
+                  "options": ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herz.", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chile", "China", "Colombia", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czechia", "Côte d'Ivoire", "Dem. Rep. Congo", "Dem. Rep. Congo", "Democratic People's Republic of Korea", "Denmark", "Djibouti", "Dominica", "Dominican Rep.", "Ecuador", "Egypt", "El Salvador", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong (S.A.R.)", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "NA", "Namibia", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Nomadic", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of Korea", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Saudi Arabia", "Senegal", "Serbia", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Somalia", "South Africa", "South Korea", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"],
+                  "labels": ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herz.", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chile", "China", "Colombia", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czechia", "Côte d'Ivoire", "Dem. Rep. Congo", "Dem. Rep. Congo", "Democratic People's Republic of Korea", "Denmark", "Djibouti", "Dominica", "Dominican Rep.", "Ecuador", "Egypt", "El Salvador", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong (S.A.R.)", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "NA", "Namibia", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Nomadic", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of Korea", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Saudi Arabia", "Senegal", "Serbia", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Somalia", "South Africa", "South Korea", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"],
+                  "name": "Country: "
+              }
+          }
+    ],
+    "layer": [
+        { 
+            "data": {
+                "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/data/flipped_data.csv"
+            },
+            "transform": [
+                {
+                    "filter": {
+                        "field": "Language",
+                        "oneOf": [
+                            "JavaScript",
+                            "Python",
+                            "TypeScript",
+                            "Java",
+                            "C#",
+                            "C++",
+                            "C",
+                            "PHP",
+                            "Go",
+                            "Rust"
+                        ]
+                    }
+                },
+                {"calculate": "datum[country]", "as": "percent"}
+            ],
+            "layer": [
+                {
+                    "mark": {"type": "bar", "fill": "maroon"},
+                    "encoding": {
+                        "x": {
+                            "field": "Language", 
+                            "type": "nominal", 
+                            "title": "Programming Language"
+                        },
+                        "y": {
+                            "field": "percent", 
+                            "type": "quantitative", 
+                            "scale": {"domain": [1, 100]},
+                            "title": "% of Users"
+                        },
+                        "tooltip": [
+                            {"field": "Language", "type": "nominal", "title": "Programming Language"},
+                            {"field": "percent", "type": "quantitative", "title": "% of Users"}
+                        ]
+                    }
+                },
+                {
+                    "transform": [
+                        {
+                          "window": [
+                            {"op": "rank", "as": "ranking"},
+                            {"op": "row_number", "as": "i"}
+                          ],
+                          "sort": [{"field": "percent", "order": "descending"}]
+                        },
+                        {"filter": "datum.ranking == 1 && datum.i == 1"},
+                        {
+                          "calculate": "datum[country] + '% of country\\'s;Coders use;' + datum.Language",
+                          "as": "text_annotation_raw"
+                        },
+                        {
+                            "calculate": "split(datum.text_annotation_raw, ';')",
+                            "as": "text_annotation"
+                        }
+                      ],
+                      "mark": {
+                        "type": "text",
+                        "align": "right",
+                        "dx": -5,
+                        "dy": -100,
+                        "baseline": "middle",
+                        "fontStyle": "italic"
+                      },
+                      "encoding": {"text": {"field": "text_annotation"}}
+                }
+            ]
+        }
+    ]
+}
