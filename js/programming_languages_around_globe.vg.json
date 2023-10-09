@@ -5,7 +5,7 @@
   "height": 300,
   "projection": {"type": "equalEarth"},
   "data": {
-      "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/js/ne_110m_admin_0_countries.topojson",
+      "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/js/ne_110m_admin_0_countries.topojson",
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
   "params": [
@@ -46,7 +46,7 @@
           "lookup": "properties.NAME",
           "from": {
               "data": {
-                  "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/data/clean_data.csv"
+                  "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/clean_data.csv"
               },
               "key": "Country",
               "fields": [
@@ -68,7 +68,7 @@
   "layer": [
       {
           "data": {
-              "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_HomeworkWeek10/main/js/WorldMapWithGraticules.topojson",
+              "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/js/WorldMapWithGraticules.topojson",
               "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
           },
           "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
