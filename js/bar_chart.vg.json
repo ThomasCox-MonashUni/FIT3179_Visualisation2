@@ -1,10 +1,18 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 250,
-    "height": 240,
+    "width": 300,
+    "height": 300,
     "description": "Programming Languages across the world",
     "data": {
         "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/clean_data.csv"
+    },
+    "config": {
+        "background": null,
+        "style": {
+            "cell": {
+                "stroke": "transparent"
+            }
+        }
     },
     "transform": [
         {"calculate": "Country", "as": "countries"}

@@ -4,13 +4,30 @@
   "data": {
     "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/gender_data.csv"
   },
+  "width": 250,
+  "height": 250,
+  "config": {
+    "background": null,
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  },
+  "transform": [
+    {"calculate": "datum.Percent * 100", "as": "percent"}
+  ],
   "mark": "arc",
   "encoding": {
-    "theta": {"field": "Percent", "type": "quantitative"},
+    "theta": {"field": "percent", "type": "quantitative"},
     "color": {
       "field": "Gender", 
       "type": "nominal", 
-      "scale": {"range": ["#4468c9", "#720194", "#ff00bf"]}
-    }
+      "scale": {"range": ["#527df2", "#720194", "#ff00bf"]}
+    },
+    "tooltip": [
+      {"field": "Gender", "type": "nominal", "title": "Gender: "},
+      {"field": "percent", "type": "quantitative", "title": "%", "format": ".1f"}
+  ]
   }
 }

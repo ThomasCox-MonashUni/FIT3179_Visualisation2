@@ -1,12 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Programming Languages Used Around the World by Population",
-  "width": 600,
-  "height": 300,
+  "title": "Programming Languages Used Around the World by Percentage",
+  "width": 800,
+  "height": 400,
   "projection": {"type": "equalEarth"},
   "data": {
       "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/js/ne_110m_admin_0_countries.topojson",
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+  },
+  "config": {
+    "background": "#acc4fc", 
+    "style": {
+        "cell": {
+            "stroke": "transparent"
+        }
+    }
   },
   "params": [
     {
@@ -71,10 +79,10 @@
               "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/js/WorldMapWithGraticules.topojson",
               "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
           },
-          "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+          "mark": {"type": "geoshape", "fill": null, "stroke": "gray"}
       },
       {
-          "mark": {"type": "geoshape", "fill": "#fcd5b1", "stroke": "white"},
+          "mark": {"type": "geoshape", "fill": "#fcd5b1", "stroke": "brown"},
           "encoding": {
             "tooltip": [
                 {"field": "properties.NAME", "type": "nominal", "title": "Country"},
@@ -83,7 +91,7 @@
           }
       },
       {
-          "mark": {"type": "geoshape", "stroke": "white"},
+          "mark": {"type": "geoshape", "stroke": "brown"},
           
           "encoding": {
               "color": {

@@ -1,0 +1,47 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Stock prices of 5 Tech Companies over Time.",
+    "data": {"url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/language_timeline.csv"},
+    "width": 450,
+    "height": 250,
+    "config": {
+        "background": null,
+        "style": {
+            "cell": {
+                "stroke": "transparent"
+            }
+        }
+    },
+    "transform": [
+        {
+            "filter": {
+                "field": "Language",
+                "oneOf": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "Java",
+                    "C#",
+                    "C++"
+                ]
+            }
+        },
+        {"calculate": "datum.Language", "as": "language"},
+        {"calculate": "datum.Count * 100", "as": "percent"}
+    ],
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "x": {"timeUnit": "year", "field": "Year", "type": "ordinal", "title": null},
+      "y": {"field": "percent", "type": "quantitative", "axis": {"format": ".1f"}, "title": "% of Users"},
+      "color": {"field": "language", "type": "nominal", "title": "Language"},
+      "tooltip": [
+        {"timeUnit": "year", "field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Language", "type": "nominal", "title": "Language"},
+        {"field": "percent", "type": "nominal", "title": "% of Users", "format": ".1f"}
+      ]
+    }
+  }
+  
