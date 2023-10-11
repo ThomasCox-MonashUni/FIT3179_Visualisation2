@@ -7,7 +7,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@3.0.0/build/grids-responsive-min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Poppins:wght@300;500&family=Tilt+Prism&display=swap" rel="stylesheet">
 
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/layout.css" media="all">
@@ -15,24 +19,80 @@
   </head>
   <body>
 
-    <div class="pure-g">
-      <div class="pure-u-3-5 map_container">
-        <div id="map"></div>
-      </div>
-      <div class="pure-u-2-5 bar_container">
-        <div id="bar"></div>
+    <h1 id="title">Programming Around The World</h1>
+    <div class="sub_title_row">
+      <div class="side_pad"></div>
+      <p id="sub_title">Here is how the current state of programming and programming languages looks like around the world.</p>
+      <div class="side_pad"></div>
+    </div>
+
+    <div id="map_row" class="row">
+      <div id="map"></div>
+    </div>
+    
+    <div class="row">
+      <div class="side_pad"></div>
+      
+      <div id="bar" class="graph"></div>
+      <div class="graph"></div>
+      <div class="text_col">
+        <p>
+          <b style="color: #83bcb6;">JavaScript</b> is currently the most commonly used programming language in most countries,
+          used by <b>11.9%</b> of programmers worldwide.</p>
+        </p>
       </div>
 
+      <div class="side_pad"></div>
+    </div>
+
+    <div class="row">
+      <div class="side_pad"></div>
+
+      <div id="trends" class="line_chart"></div>
+      <div class="text_col">
+        <p>
+          <b style="color: #83bcb6;">JavaScript</b> has also been the most commonly used programming language worldwide over the past 6 
+          years, followed by <b style="color: #54a24b;">Python</b> and <b style="color: #f2cf5b;">TypeScript</b>. <b style="color: #e45756;">Java</b> has started to wane in popularity, having declined
+          <b>3.75%</b> since 2017.
+        </p> 
+      </div>
+      
+      <div class="side_pad"></div>
+    </div>
+
+    <div class="row">
+      <div class="side_pad"></div>
+
+      <div id="pie" class="graph"></div>
+      <div class="graph"></div>
+      <div class="text_col">
+        <p>
+          <b style="color: #527df2;">Men</b> make up the majority of programmers, making up <b>95%</b> of programmers. 
+          <b style="color: #720194;">Trans and Non-Binary</b> programmers make up an even smaller proportion.
+        </p>
+      </div>
+      
+      <div class="side_pad"></div>
     </div>
       
     <script type="text/javascript">
-      var spec1 = "js/bar_chart.vg.json";
-      vegaEmbed('#bar', spec1).then(function(result) {
+      var bar = "js/bar_chart.vg.json";
+      vegaEmbed('#bar', bar).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     
-      var spec2 = "js/programming_languages_around_globe.vg.json";
-      vegaEmbed('#map', spec2).then(function(result) {
+      var map = "js/programming_languages_around_globe.vg.json";
+      vegaEmbed('#map', map).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+
+      var trends = "js/line_chart.vg.json";
+      vegaEmbed('#trends', trends).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+
+      var pie = "js/pie_chart.vg.json";
+      vegaEmbed('#pie', pie).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     </script>
