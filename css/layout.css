@@ -53,12 +53,12 @@ body {
 
 .graph {
     width: 25vw;
-    /* min-width: 27em; */
+    min-width: 20em;
     min-height: 27em;
 }
 
 .line_chart {
-    width: 50vw;
+    width: 38vw;
 }
 
 .text_col {
@@ -68,6 +68,7 @@ body {
     font-weight: 300;
     font-size: 1.4rem;
     width: 20vw;
+    min-width: 10em;
 }
 
 #map_row {
