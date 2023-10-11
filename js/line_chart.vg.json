@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "Stock prices of 5 Tech Companies over Time.",
     "data": {"url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/language_timeline.csv"},
-    "width": 450,
+    "width": "container",
     "height": 250,
     "config": {
         "background": null,
@@ -12,6 +12,13 @@
             }
         }
     },
+    "params": [{
+        "name": "pts",
+        "select": {
+            "type": "point",
+            "fields": ["Language"]
+        }
+    }],
     "transform": [
         {
             "filter": {
@@ -36,7 +43,15 @@
     "encoding": {
       "x": {"timeUnit": "year", "field": "Year", "type": "ordinal", "title": null},
       "y": {"field": "percent", "type": "quantitative", "axis": {"format": ".1f"}, "title": "% of Users"},
-      "color": {"field": "language", "type": "nominal", "title": "Language"},
+      "color": {
+        "condition": {
+            "param": "pts",
+            "field": "language", 
+            "type": "nominal",
+            "title": "Language"
+          },
+          "value": "lightgrey"
+        },
       "tooltip": [
         {"timeUnit": "year", "field": "Year", "type": "ordinal", "title": "Year"},
         {"field": "Language", "type": "nominal", "title": "Language"},

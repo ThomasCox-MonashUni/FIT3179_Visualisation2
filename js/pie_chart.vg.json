@@ -4,7 +4,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/gender_data.csv"
   },
-  "width": 250,
+  "width": "container",
   "height": 250,
   "config": {
     "background": null,
