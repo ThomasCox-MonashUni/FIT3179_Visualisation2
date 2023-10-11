@@ -1,28 +1,75 @@
+/*
+FONT TAGS
+font-family: 'Chakra Petch', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Tilt Prism', cursive;
+
+*/
+
 html,
 body {
     background-color: #ffe9d9;
 }
 
-.pure-g {
-    padding-top: 100px;
+#title {
+    height: 10vh;
     text-align: center;
+    font-family: monospace;
+    font-size: 6vh;
+    margin-bottom: 0;
+}
+
+.sub_title_row {
+    display: flex;
     align-items: center;
 }
 
-.map_container {
-    height: 50vw;
+#sub_title {
+    text-align: center;
+    font-family: monospace;
+    font-size: 3vh;
+    color: #696969;
+}
+
+.pure-g {
+    align-items: center;
+}
+
+.row {
+    min-height: 60vh;
+    padding-bottom: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+.vega-bindings {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+.side_pad {
+    width: 23vw;
+}
+
+.graph {
+    width: 25vw;
+    /* min-width: 27em; */
+    min-height: 27em;
+}
+
+.line_chart {
+    width: 50vw;
+}
+
+.text_col {
+    align-self: flex-start;
+    align-items: self-start;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+    width: 20vw;
+}
+
+#map_row {
     justify-content: center;
-}
-
-.bar_container {
-    height: 50vw;
-    justify-content: center;
-}
-
-#bar {
-    margin: auto;
-}
-
-#map {
-    margin: auto;
 }
