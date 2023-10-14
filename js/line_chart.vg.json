@@ -1,6 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Stock prices of 5 Tech Companies over Time.",
+    "title": {
+      "text": "Language Use From 2017-2023",
+      "font": "'Poppins', sans-serif"
+    },
     "data": {"url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/language_timeline.csv"},
     "width": "container",
     "height": 250,
@@ -41,13 +44,34 @@
       "point": true
     },
     "encoding": {
-      "x": {"timeUnit": "year", "field": "Year", "type": "ordinal", "title": null},
-      "y": {"field": "percent", "type": "quantitative", "axis": {"format": ".1f"}, "title": "% of Users"},
+      "x": {
+        "timeUnit": "year", 
+        "field": "Year", 
+        "type": "ordinal", 
+        "title": null,
+        "axis": {
+          "titleFont": "'Poppins', sans-serif", 
+          "labelFont": "'Poppins', sans-serif", 
+          "labelFontWeight": 300
+        }
+      },
+      "y": {
+        "field": "percent", 
+        "type": "quantitative", 
+        "title": "% of Programmers",
+        "axis": {
+          "format": ".1f",
+          "titleFont": "'Poppins', sans-serif", 
+          "labelFont": "'Poppins', sans-serif", 
+          "labelFontWeight": 300
+        }
+      },
       "color": {
         "condition": {
             "param": "pts",
             "field": "language", 
             "type": "nominal",
+            "scale": {"range": ["#4c78a8", "#f58518", "#ff9da6", "#83bcb6", "#54a24b", "#f2cf5b"]},
             "title": "Language"
           },
           "value": "lightgrey"

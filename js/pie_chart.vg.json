@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A simple pie chart with embedded data.",
+  "title": {
+    "text": "Programmers by Gender", 
+    "font": "'Poppins', sans-serif" 
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/ThomasCox-MonashUni/FIT3179_Visualisation2/main/data/gender_data.csv"
   },
@@ -23,7 +26,12 @@
     "color": {
       "field": "Gender", 
       "type": "nominal", 
-      "scale": {"range": ["#527df2", "#720194", "#ff00bf"]}
+      "scale": {"range": ["#527df2", "#720194", "#ff00bf"]},
+      "legend": {
+        "titleFont": "'Poppins', sans-serif",
+        "labelFont": "'Poppins', sans-serif",
+        "labelFontWeight": 300
+      }
     },
     "tooltip": [
       {"field": "Gender", "type": "nominal", "title": "Gender: "},
