@@ -1,14 +1,9 @@
-/*
-FONT TAGS
-font-family: 'Chakra Petch', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Tilt Prism', cursive;
-
-*/
-
-html,
-body {
+html, body {
     background-color: #ffe9d9;
+}
+
+select {
+    max-width: 250px;
 }
 
 #title {
@@ -36,8 +31,9 @@ body {
 }
 
 .row {
+    max-width: 80vw;
     min-height: 60vh;
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
     display: flex;
     align-items: center;
 }
@@ -47,8 +43,20 @@ body {
     font-weight: 300;
 }
 
+#whole_page {
+    display: flex;
+    flex-direction: row;
+}
+
+.pad {
+    width: 20vw;
+    top: 0;
+    bottom: 0;
+    background-color: #ace9fc;
+}
+
 .side_pad {
-    width: 23vw;
+    width: 15vw;
 }
 
 .graph {
