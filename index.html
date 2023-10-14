@@ -19,84 +19,94 @@
   </head>
   <body>
 
-    <h1 id="title">Programming Around The World</h1>
-    <div class="sub_title_row">
-      <div class="side_pad"></div>
-      <p id="sub_title">Here is how the current state of programming and programming languages looks like around the world.</p>
-      <div class="side_pad"></div>
-    </div>
+    <div id="whole_page">
+      <div class="pad"></div>
 
-    <div id="map_row" class="row">
-      <div id="map"></div>
-    </div>
+      <div class="content">
+        <h1 id="title">Programming Across the Globe</h1>
+        <div class="sub_title_row">
+          <div class="side_pad"></div>
+          <p id="sub_title">A visualisation showing how the programming languages of today look like around the world.</p>
+          <div class="side_pad"></div>
+        </div>
     
-    <div class="row">
-      <div class="side_pad"></div>
-      
-      <div id="bar" class="graph"></div>
-      <div style="width: 5vw"></div>
-      <!-- <div class="graph"></div> -->
-      <div class="text_col">
-        <p>
-          <b style="color: #83bcb6;">JavaScript</b> is currently the most commonly used programming language in most countries,
-          used by <b>11.9%</b> of programmers worldwide.</p>
-        </p>
+        <div id="map_row" class="row">
+          <div id="map"></div>
+        </div>
+        
+        <div class="row">
+          <div class="side_pad"></div>
+          
+          <div id="bar" class="graph"></div>
+          <div style="width: 5vw"></div>
+          <!-- <div class="graph"></div> -->
+          <div class="text_col">
+            <p>
+              <b style="color: #83bcb6;">JavaScript</b> is currently the most commonly used programming language in most countries,
+              used by <b>11.9%</b> of programmers worldwide.</p>
+            </p>
+          </div>
+    
+          <div class="side_pad"></div>
+        </div>
+    
+        <div class="row">
+          <div class="side_pad"></div>
+    
+          <div id="trends" class="line_chart"></div>
+          <div style="width: 5vw"></div>
+          <div class="text_col">
+            <p>
+              <b style="color: #83bcb6;">JavaScript</b> has also been the most commonly used programming language worldwide over the past 6 
+              years, followed by <b style="color: #54a24b;">Python</b> and <b style="color: #f2cf5b;">TypeScript</b>. <b style="color: #ff9da6;">Java</b> has started to wane in popularity, having declined
+              <b>3.75%</b> since 2017.
+            </p> 
+          </div>
+          
+          <div style="width: 15vw"></div>
+        </div>
+    
+        <div class="row">
+          <div class="side_pad"></div>
+    
+          <div id="pie" class="graph"></div>
+          <!-- <div class="graph"></div> -->
+          <div style="width: 5vw"></div>
+          <div class="text_col">
+            <p>
+              <b style="color: #527df2;">Men</b> make up the majority of programmers, making up <b>95%</b> of programmers. 
+              The least number of programmers are <b style="color: #720194;">Trans and Non-Binary</b>, making up only <b>1%</b> 
+              of the total.
+            </p>
+          </div>
+          
+          <div class="side_pad"></div>
+        </div>
       </div>
 
-      <div class="side_pad"></div>
+      <div class="pad"></div>
     </div>
 
-    <div class="row">
-      <div style="width: 10vw"></div>
-      <!-- <div class="side_pad"></div> -->
 
-      <div id="trends" class="line_chart"></div>
-      <div style="width: 5vw"></div>
-      <div class="text_col">
-        <p>
-          <b style="color: #83bcb6;">JavaScript</b> has also been the most commonly used programming language worldwide over the past 6 
-          years, followed by <b style="color: #54a24b;">Python</b> and <b style="color: #f2cf5b;">TypeScript</b>. <b style="color: #e45756;">Java</b> has started to wane in popularity, having declined
-          <b>3.75%</b> since 2017.
-        </p> 
-      </div>
-      
-      <div class="side_pad"></div>
-    </div>
-
-    <div class="row">
-      <div class="side_pad"></div>
-
-      <div id="pie" class="graph"></div>
-      <!-- <div class="graph"></div> -->
-      <div style="width: 5vw"></div>
-      <div class="text_col">
-        <p>
-          <b style="color: #527df2;">Men</b> make up the majority of programmers, making up <b>95%</b> of programmers. 
-          <b style="color: #720194;">Trans and Non-Binary</b> programmers make up an even smaller proportion.
-        </p>
-      </div>
-      
-      <div class="side_pad"></div>
-    </div>
       
     <script type="text/javascript">
       var bar = "js/bar_chart.vg.json";
-      vegaEmbed('#bar', bar).then(function(result) {
+      vegaEmbed('#bar', bar, {"actions": false}).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     
       var map = "js/programming_languages_around_globe.vg.json";
-      vegaEmbed('#map', map).then(function(result) {
+      vegaEmbed('#map', map, {"actions": false}).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
       var trends = "js/line_chart.vg.json";
-      vegaEmbed('#trends', trends).then(function(result) {
+      vegaEmbed('#trends', trends, {"actions": false}).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
       var pie = "js/pie_chart.vg.json";
-      vegaEmbed('#pie', pie).then(function(result) {
+      vegaEmbed('#pie', pie, {"actions": false}).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     </script>
