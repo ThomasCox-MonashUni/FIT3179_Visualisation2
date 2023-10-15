@@ -55,11 +55,11 @@
                         ]
                     }
                 },
-                {"calculate": "datum[country]", "as": "percent"}
+                {"calculate": "parseFloat(datum[country])", "as": "percent"}
             ],
             "layer": [
                 {
-                    "mark": {"type": "bar", "fill": "maroon"},
+                    "mark": {"type": "bar", "fill": "#b93d02"},
                     "encoding": {
                         "x": {
                             "field": "Language", 
@@ -97,7 +97,7 @@
                             {"op": "row_number", "as": "i"}
                           ]
                         },
-                        {"filter": "datum.i == 1"},
+                        {"filter": "datum.ranking == 1 && datum.i == 1"},
                         {
                           "calculate": "datum[country] + '% of country\\'s;Coders use;' + datum.Language",
                           "as": "text_annotation_raw"
