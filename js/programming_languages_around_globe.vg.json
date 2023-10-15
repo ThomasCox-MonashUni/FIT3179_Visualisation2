@@ -12,7 +12,7 @@
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
   "config": {
-    "background": "#acc4fc", 
+    "background": "#ace9fc", 
     "style": {
         "cell": {
             "stroke": "transparent"
