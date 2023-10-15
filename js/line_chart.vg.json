@@ -72,7 +72,12 @@
             "field": "language", 
             "type": "nominal",
             "scale": {"range": ["#4c78a8", "#f58518", "#ff9da6", "#83bcb6", "#54a24b", "#f2cf5b"]},
-            "title": "Language"
+            "title": "Language",
+            "legend": {
+              "titleFont": "'Poppins', sans-serif",
+              "labelFont": "'Poppins', sans-serif", 
+              "labelFontWeight": 300
+            }
           },
           "value": "lightgrey"
         },
